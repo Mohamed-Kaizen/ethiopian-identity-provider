@@ -16,7 +16,7 @@ from reversion_compare.admin import CompareVersionAdmin
 from reversion_compare.helpers import patch_admin
 
 from .forms import CustomUserChangeForm, CustomUserCreationForm
-from .models import Address, CustomUser, Fingerprint, Renew
+from .models import Address, Business, CustomUser, Fingerprint, Renew
 
 
 class UserResource(resources.ModelResource):
@@ -223,6 +223,56 @@ class RenewAdmin(CompareVersionAdmin):
         queryset.update(status="Accepted")
 
     make_accepted.short_description = "Mark selected request as Accepted"
+
+
+@admin.register(Business)
+class BusinessAdmin(CompareVersionAdmin):
+    """Configure the business in admin page."""
+
+    list_display = (
+        "name",
+        "requested_by",
+        "status",
+        "type",
+        "city",
+        "is_active",
+        "create_at",
+    )
+
+    ordering = (
+        "name",
+        "requested_by",
+        "status",
+        "type",
+        "city",
+        "is_active",
+        "create_at",
+    )
+
+    list_filter = ("status", "type", "is_active", "city", "create_at")
+
+    date_hierarchy = "create_at"
+
+    readonly_fields = ("status",)
+
+    actions = ["make_accepted", "make_deny"]
+
+    def make_accepted(
+        self: "BusinessAdmin", request: WSGIRequest, queryset: QuerySet
+    ) -> None:
+        """Custom action that update the status of business to Accepted."""
+        queryset.update(status="Accepted")
+        queryset.update(is_active=True)
+
+    def make_deny(
+        self: "BusinessAdmin", request: WSGIRequest, queryset: QuerySet
+    ) -> None:
+        """Custom action that update the status of business to Deny."""
+        queryset.update(status="Deny")
+        queryset.update(is_active=False)
+
+    make_accepted.short_description = "Mark selected business request as Accepted"
+    make_deny.short_description = "Mark selected business request as Deny"
 
 
 patch_admin(Application)

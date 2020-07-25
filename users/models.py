@@ -46,6 +46,16 @@ class Status(models.TextChoices):
 
     Accepted = ("Accepted", _("Accepted"))
 
+    Deny = ("Deny", _("Deny"))
+
+
+class BusinessType(models.TextChoices):
+    """Enum class for Business Type."""
+
+    sole_proprietorship = ("Sole Proprietorship", _("Sole Proprietorship"))
+
+    private_limited_company = ("Private Limited Company", _("Private Limited Company"))
+
 
 class CustomUser(AbstractUser):
     """Reference user model."""
@@ -178,7 +188,7 @@ class Renew(models.Model):
         max_length=20,
     )
 
-    create_at = models.DateTimeField(verbose_name=_("created_at"), auto_now_add=True)
+    create_at = models.DateTimeField(verbose_name=_("created at"), auto_now_add=True)
 
     class Meta:
         """Meta data."""
@@ -189,6 +199,55 @@ class Renew(models.Model):
     def __str__(self: "Renew") -> str:
         """It return readable name for the model."""
         return f"{self.user} ask for renew"
+
+
+class Business(models.Model):
+    """Reference business model."""
+
+    name = models.CharField(verbose_name=_("name"), max_length=200, unique=True)
+
+    description = models.TextField(verbose_name=_("description"))
+
+    city = models.CharField(verbose_name=_("city"), max_length=200)
+
+    sub_city = models.CharField(verbose_name=_("sub city"), max_length=200)
+
+    type = models.CharField(
+        verbose_name=_("type"), choices=BusinessType.choices, max_length=25,
+    )
+
+    requested_by = models.ForeignKey(
+        CustomUser,
+        verbose_name=_("requested by"),
+        on_delete=models.CASCADE,
+        related_name="businesses",
+        db_index=True,
+    )
+
+    owners = models.ManyToManyField(
+        CustomUser, verbose_name=_("owners"), related_name="business_owners", blank=True
+    )
+
+    status = models.CharField(
+        verbose_name=_("status"),
+        choices=Status.choices,
+        default=Status.Requested,
+        max_length=20,
+    )
+
+    is_active = models.BooleanField(verbose_name=_("is active"), null=True, blank=True)
+
+    create_at = models.DateTimeField(verbose_name=_("created_at"), auto_now_add=True)
+
+    class Meta:
+        """Meta data."""
+
+        verbose_name = _("business")
+        verbose_name_plural = _("businesses")
+
+    def __str__(self: "Business") -> str:
+        """It return readable name for the model."""
+        return f"{self.name}"
 
 
 @receiver(pre_save, sender=CustomUser)
