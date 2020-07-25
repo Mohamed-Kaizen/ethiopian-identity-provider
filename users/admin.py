@@ -4,7 +4,9 @@ from typing import Dict, Optional
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.core.handlers.wsgi import WSGIRequest
+from django.db.models import QuerySet
 from django.forms.models import ModelFormMetaclass
+from django.utils import timezone
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 from import_export import resources
@@ -14,7 +16,7 @@ from reversion_compare.admin import CompareVersionAdmin
 from reversion_compare.helpers import patch_admin
 
 from .forms import CustomUserChangeForm, CustomUserCreationForm
-from .models import Address, CustomUser, Fingerprint
+from .models import Address, CustomUser, Fingerprint, Renew
 
 
 class UserResource(resources.ModelResource):
@@ -180,6 +182,47 @@ class CustomUserAdmin(ExportActionModelAdmin, CompareVersionAdmin, UserAdmin):
                 form.base_fields[field].disabled = True
 
         return form
+
+
+@admin.register(Renew)
+class RenewAdmin(CompareVersionAdmin):
+    """Configure the renew in admin page."""
+
+    list_display = (
+        "user",
+        "status",
+        "create_at",
+    )
+
+    ordering = (
+        "user",
+        "status",
+        "create_at",
+    )
+
+    list_filter = ("status", "create_at")
+
+    date_hierarchy = "create_at"
+
+    readonly_fields = ("status",)
+
+    actions = ["make_accepted"]
+
+    def make_accepted(
+        self: "RenewAdmin", request: WSGIRequest, queryset: QuerySet
+    ) -> None:
+        """Custom action that update the status of renew to Accepted."""
+        renew_request = queryset.first()
+
+        user = renew_request.user
+
+        user.expired_at = renew_request.create_at + timezone.timedelta(days=365)
+
+        user.save()
+
+        queryset.update(status="Accepted")
+
+    make_accepted.short_description = "Mark selected request as Accepted"
 
 
 patch_admin(Application)

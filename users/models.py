@@ -39,6 +39,14 @@ def fingerprint_upload_to(instance: "Fingerprint", filename: str) -> str:
     return f"images/profile_pics/{instance.user.username}/fingerprint/{filename}"
 
 
+class Status(models.TextChoices):
+    """Enum class for Status."""
+
+    Requested = ("Requested", _("Requested"))
+
+    Accepted = ("Accepted", _("Accepted"))
+
+
 class CustomUser(AbstractUser):
     """Reference user model."""
 
@@ -152,8 +160,39 @@ class Fingerprint(models.Model):
         return f"{self.user} fingerprint"
 
 
+class Renew(models.Model):
+    """Reference renew model."""
+
+    user = models.ForeignKey(
+        CustomUser,
+        verbose_name=_("user"),
+        on_delete=models.CASCADE,
+        related_name="renews",
+        db_index=True,
+    )
+
+    status = models.CharField(
+        verbose_name=_("status"),
+        choices=Status.choices,
+        default=Status.Requested,
+        max_length=20,
+    )
+
+    create_at = models.DateTimeField(verbose_name=_("created_at"), auto_now_add=True)
+
+    class Meta:
+        """Meta data."""
+
+        verbose_name = _("renew")
+        verbose_name_plural = _("renews")
+
+    def __str__(self: "Renew") -> str:
+        """It return readable name for the model."""
+        return f"{self.user} ask for renew"
+
+
 @receiver(pre_save, sender=CustomUser)
-def event_(sender: CustomUser, instance: CustomUser, **kwargs: Any) -> None:
+def event_pin(sender: CustomUser, instance: CustomUser, **kwargs: Any) -> None:
     """Signal for CustomUser."""
     if not instance.pin:
         instance.pin = unique_personal_identity_number()
