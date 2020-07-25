@@ -14,7 +14,7 @@ from reversion_compare.admin import CompareVersionAdmin
 from reversion_compare.helpers import patch_admin
 
 from .forms import CustomUserChangeForm, CustomUserCreationForm
-from .models import CustomUser
+from .models import Address, CustomUser, Fingerprint
 
 
 class UserResource(resources.ModelResource):
@@ -29,9 +29,25 @@ class UserResource(resources.ModelResource):
         export_order = ("username", "email", "date_joined", "last_login")
 
 
+class AddressInline(admin.StackedInline):
+    """Inline for Address model."""
+
+    model = Address
+    extra = 0
+
+
+class FingerprintInline(admin.TabularInline):
+    """Inline for Fingerprint model."""
+
+    model = Fingerprint
+    extra = 0
+
+
 @admin.register(CustomUser)
 class CustomUserAdmin(ExportActionModelAdmin, CompareVersionAdmin, UserAdmin):
     """Configure the users app in admin page."""
+
+    inlines = [AddressInline, FingerprintInline]
 
     add_form = CustomUserCreationForm
     form = CustomUserChangeForm
@@ -40,16 +56,26 @@ class CustomUserAdmin(ExportActionModelAdmin, CompareVersionAdmin, UserAdmin):
     add_fieldsets = (
         (
             None,
+            {"classes": ("wide",), "fields": ("username", "password1", "password2",)},
+        ),
+        (
+            _("Personal info"),
             {
-                "classes": ("wide",),
-                "fields": ("username", "email", "password1", "password2",),
+                "fields": (
+                    "full_name",
+                    "email",
+                    "date_of_birth",
+                    "born",
+                    "nationality",
+                    "picture",
+                )
             },
         ),
-        (_("Permissions"), {"fields": ("is_superuser", "is_staff")}),
+        (_("Permissions"), {"fields": ("is_superuser", "is_staff", "groups")}),
     )
 
     fieldsets = (
-        (None, {"fields": ("username",)}),
+        (None, {"fields": ("username", "pin")}),
         (
             _("Personal info"),
             {
@@ -116,6 +142,7 @@ class CustomUserAdmin(ExportActionModelAdmin, CompareVersionAdmin, UserAdmin):
         "date_joined",
         "age",
         "expired_at",
+        "pin",
     )
 
     def rendered_picture(self: "CustomUserAdmin", obj: "CustomUser") -> str:

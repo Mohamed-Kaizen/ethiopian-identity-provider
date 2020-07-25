@@ -1,11 +1,16 @@
 """Collection of model."""
 import uuid
+from typing import Any
 
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from django_countries.fields import CountryField
+
+from .utils import unique_personal_identity_number
 
 
 def user_upload_to(instance: "CustomUser", filename: str) -> str:
@@ -21,11 +26,31 @@ def user_upload_to(instance: "CustomUser", filename: str) -> str:
     return f"images/profile_pics/{instance.username}/{filename}"
 
 
+def fingerprint_upload_to(instance: "Fingerprint", filename: str) -> str:
+    """A help Function to change the image upload path.
+
+    Args:
+        instance: django model
+        filename: the uploaded file name
+
+    Returns:
+        path in string format
+    """
+    return f"images/profile_pics/{instance.user.username}/fingerprint/{filename}"
+
+
 class CustomUser(AbstractUser):
     """Reference user model."""
 
     uuid = models.UUIDField(
         default=uuid.uuid4, editable=False, verbose_name=_("unique id")
+    )
+
+    pin = models.CharField(
+        verbose_name=_("personal identity number"),
+        max_length=25,
+        unique=True,
+        editable=False,
     )
 
     email = models.EmailField(verbose_name=_("email address"), unique=True)
@@ -69,3 +94,66 @@ class CustomUser(AbstractUser):
         except Exception as error:
             print(error)
             return ""
+
+
+class Address(models.Model):
+    """Reference address model."""
+
+    user = models.ForeignKey(
+        CustomUser,
+        verbose_name=_("user"),
+        on_delete=models.CASCADE,
+        related_name="addresses",
+        db_index=True,
+    )
+
+    country = CountryField(verbose_name=_("country"))
+
+    city = models.CharField(verbose_name=_("city"), max_length=100)
+
+    street = models.CharField(verbose_name=_("street"), max_length=100)
+
+    house_number = models.CharField(verbose_name=_("house number"), max_length=100)
+
+    class Meta:
+        """Meta data."""
+
+        verbose_name = _("address")
+        verbose_name_plural = _("addresses")
+
+    def __str__(self: "Address") -> str:
+        """It return readable name for the model."""
+        return f"{self.user} address"
+
+
+class Fingerprint(models.Model):
+    """Reference fingerprint model."""
+
+    user = models.ForeignKey(
+        CustomUser,
+        verbose_name=_("user"),
+        on_delete=models.CASCADE,
+        related_name="fingerprints",
+        db_index=True,
+    )
+
+    picture = models.ImageField(
+        verbose_name=_("picture"), upload_to=fingerprint_upload_to
+    )
+
+    class Meta:
+        """Meta data."""
+
+        verbose_name = _("fingerprint")
+        verbose_name_plural = _("fingerprints")
+
+    def __str__(self: "Fingerprint") -> str:
+        """It return readable name for the model."""
+        return f"{self.user} fingerprint"
+
+
+@receiver(pre_save, sender=CustomUser)
+def event_(sender: CustomUser, instance: CustomUser, **kwargs: Any) -> None:
+    """Signal for CustomUser."""
+    if not instance.pin:
+        instance.pin = unique_personal_identity_number()
