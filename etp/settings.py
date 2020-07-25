@@ -56,11 +56,11 @@ THIRD_PARTY_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
-    "dj_rest_auth.registration",
     "dj_rest_auth",
     "oauth2_provider",
     "reversion",
     "reversion_compare",
+    "django_countries",
 ]
 
 LOCAL_APPS = ["users.apps.UsersConfig"]
@@ -177,7 +177,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#locale-paths
 LOCALE_PATHS = [BASE_DIR.joinpath("local")]
 
-LANGUAGES = (("en", _("English")), ("ar", _("Arabic")))
+LANGUAGES = (("en", _("English")), ("ar", _("Arabic")), ("am", _("Amharic")))
 
 # TEMPLATES
 # ------------------------------------------------------------------------------

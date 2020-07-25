@@ -339,6 +339,19 @@ version = "3.4.0"
 Django = ">=2.0"
 
 [[package]]
+category = "main"
+description = "Provides a country field for Django models."
+name = "django-countries"
+optional = false
+python-versions = "*"
+version = "6.1.2"
+
+[package.extras]
+dev = ["tox", "black", "django", "pytest", "pytest-django", "djangorestframework", "graphene-django"]
+maintainer = ["transifex-client", "zest.releaser", "django"]
+test = ["pytest", "pytest-django", "pytest-cov", "graphene-django"]
+
+[[package]]
 category = "dev"
 description = "Django template coverage.py plugin"
 name = "django-coverage-plugin"
@@ -386,7 +399,7 @@ Django = ">=2.0"
 diff-match-patch = "*"
 
 [package.dependencies.tablib]
-extras = ["yaml", "html", "xls", "ods", "xlsx"]
+extras = ["xls", "yaml", "xlsx", "ods", "html"]
 version = ">=0.14.0"
 
 [[package]]
@@ -1595,7 +1608,7 @@ python-versions = "*"
 version = "1.3.0"
 
 [metadata]
-content-hash = "3f649d98ab651f75df613c53ce2a20206283d2d087849ed4b6ef9bc75ea5edde"
+content-hash = "6bb3883a04ac4b93986552f5d18df7e52d5f7e2937d3fdd24c21a08006554d1e"
 python-versions = "3.8.4"
 
 [metadata.files]
@@ -1816,6 +1829,10 @@ django-axes = [
 django-cors-headers = [
     {file = "django-cors-headers-3.4.0.tar.gz", hash = "sha256:f5218f2f0bb1210563ff87687afbf10786e080d8494a248e705507ebd92d7153"},
     {file = "django_cors_headers-3.4.0-py3-none-any.whl", hash = "sha256:5240062ef0b16668ce8a5f43324c388d65f5439e1a30e22c38684d5ddaff0d15"},
+]
+django-countries = [
+    {file = "django-countries-6.1.2.tar.gz", hash = "sha256:e2ae9b76f9a0b5f3f365b5b81fe4972df0a5878c930139586f43f7d6d50a9594"},
+    {file = "django_countries-6.1.2-py3-none-any.whl", hash = "sha256:2e852c9693818d64d28758a720a0cb8277673ac495af8b855c4dc64940703bd2"},
 ]
 django-coverage-plugin = [
     {file = "django_coverage_plugin-1.8.0.tar.gz", hash = "sha256:d53cbf3828fd83d6b89ff7292c6805de5274e36411711692043e67bcde25ae0c"},
