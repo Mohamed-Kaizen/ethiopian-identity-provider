@@ -1,7 +1,5 @@
 """Collection serializers."""
-from typing import Any, Dict
-
-from dj_rest_auth.registration.serializers import RegisterSerializer
+from django_countries.serializer_fields import CountryField
 from rest_framework import serializers
 
 
@@ -27,19 +25,27 @@ class JWTSerializer(serializers.Serializer):
     user = UserDetailsSerializer(read_only=True)
 
 
-class CustomRegisterSerializer(RegisterSerializer):
-    """Custom Register serializer."""
+class ProfileSerializer(serializers.Serializer):
+    """Profile serializer."""
 
-    picture = serializers.ImageField(required=False)
+    username = serializers.CharField(read_only=True)
 
-    full_name = serializers.CharField(max_length=300)
+    email = serializers.EmailField(read_only=True)
 
-    def get_cleaned_data(self: "CustomRegisterSerializer") -> Dict[str, Any]:
-        """Cleaning for input data."""
-        data_dict = super().get_cleaned_data()
-        data_dict["picture"] = self.validated_data.get(
-            "picture", "images/default/pic.png"
-        )
-        data_dict["full_name"] = self.validated_data.get("full_name", "")
+    personal_identity_number = serializers.CharField(read_only=True, source="pin")
 
-        return data_dict
+    full_name = serializers.CharField(read_only=True)
+
+    picture = serializers.ImageField(read_only=True)
+
+    phone_number = serializers.CharField(read_only=True)
+
+    born = CountryField(read_only=True, country_dict=True)
+
+    nationality = CountryField(read_only=True, country_dict=True)
+
+    date_of_birth = serializers.DateTimeField(read_only=True)
+
+    date_joined = serializers.DateTimeField(read_only=True)
+
+    expired_at = serializers.DateTimeField(read_only=True)

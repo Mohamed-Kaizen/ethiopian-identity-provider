@@ -330,12 +330,8 @@ ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 ACCOUNT_EMAIL_REQUIRED = True
 
 REST_AUTH_SERIALIZERS = {
-    "USER_DETAILS_SERIALIZER": "users.serializers.UserDetailsSerializer",
+    "USER_DETAILS_SERIALIZER": "users.serializers.ProfileSerializer",
     "JWT_SERIALIZER": "users.serializers.JWTSerializer",
-}
-
-REST_AUTH_REGISTER_SERIALIZERS = {
-    "REGISTER_SERIALIZER": "users.serializers.CustomRegisterSerializer",
 }
 
 ACCOUNT_ADAPTER = "users.adapter.CustomAccountAdapter"

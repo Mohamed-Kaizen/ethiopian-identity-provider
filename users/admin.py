@@ -66,6 +66,7 @@ class CustomUserAdmin(ExportActionModelAdmin, CompareVersionAdmin, UserAdmin):
                 "fields": (
                     "full_name",
                     "email",
+                    "phone_number",
                     "date_of_birth",
                     "born",
                     "nationality",
@@ -85,6 +86,7 @@ class CustomUserAdmin(ExportActionModelAdmin, CompareVersionAdmin, UserAdmin):
                 "fields": (
                     "full_name",
                     "email",
+                    "phone_number",
                     "date_of_birth",
                     "age",
                     "born",
