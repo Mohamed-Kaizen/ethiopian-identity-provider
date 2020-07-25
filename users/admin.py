@@ -4,6 +4,9 @@ from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import gettext_lazy as _
 from import_export import resources
 from import_export.admin import ExportActionModelAdmin
+from oauth2_provider.models import AccessToken, Application, Grant, RefreshToken
+from reversion_compare.admin import CompareVersionAdmin
+from reversion_compare.helpers import patch_admin
 
 from .forms import CustomUserChangeForm, CustomUserCreationForm
 from .models import CustomUser
@@ -22,7 +25,7 @@ class UserResource(resources.ModelResource):
 
 
 @admin.register(CustomUser)
-class CustomUserAdmin(ExportActionModelAdmin, UserAdmin):
+class CustomUserAdmin(ExportActionModelAdmin, CompareVersionAdmin, UserAdmin):
     """Configure the users app in admin page."""
 
     add_form = CustomUserCreationForm
@@ -76,6 +79,12 @@ class CustomUserAdmin(ExportActionModelAdmin, UserAdmin):
     date_hierarchy = "date_joined"
 
 
+patch_admin(Application)
+patch_admin(Grant)
+patch_admin(AccessToken)
+patch_admin(RefreshToken)
+
+
 admin.site.site_title = _("Ethiopian Identity Administrator site admin")
 admin.site.site_header = _("Ethiopian Identity Administrator Dashboard")
-admin.site.index_title = _("Welcome to Ethiopian Administrator Provider")
+admin.site.index_title = _("Welcome to Ethiopian Identity Administrator")

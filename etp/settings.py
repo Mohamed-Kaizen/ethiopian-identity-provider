@@ -59,6 +59,8 @@ THIRD_PARTY_APPS = [
     "dj_rest_auth.registration",
     "dj_rest_auth",
     "oauth2_provider",
+    "reversion",
+    "reversion_compare",
 ]
 
 LOCAL_APPS = ["users.apps.UsersConfig"]
@@ -353,6 +355,13 @@ OAUTH2_PROVIDER = {
         "groups": "Access to your groups",
     },
 }
+
+# django-reversion-compare
+# ------------------------------------------------------------------------------
+ADD_REVERSION_ADMIN = True
+# optional settings:
+REVERSION_COMPARE_FOREIGN_OBJECTS_AS_ID = False
+REVERSION_COMPARE_IGNORE_NOT_REGISTERED = False
 
 # Your settings...
 # ------------------------------------------------------------------------------
