@@ -1,0 +1,66 @@
+[
+{
+    "model": "oauth2_provider.application",
+    "pk": 1,
+    "fields": {
+        "client_id": "riZ8Bcesu8GaTq8qL6I5oJxeWarZzDcDzZnIOrya",
+        "user": 1,
+        "redirect_uris": "",
+        "client_type": "public",
+        "authorization_grant_type": "password",
+        "client_secret": "mQbHpfGsFiF36D3EpDLS2oK9gqRP1aIpYfSgDIEINwWdOK5uAT7NY73JzhbDMDvAhEKozTXBjfaazsgUQ1Tzh6pjDpaSKk1HcZ179zd8QtT8tozUp4PoOWd6RJWJaD22",
+        "name": "password flow",
+        "skip_authorization": false,
+        "created": "2020-07-26T16:38:19.188Z",
+        "updated": "2020-07-26T16:44:43.330Z"
+    }
+},
+{
+    "model": "oauth2_provider.application",
+    "pk": 2,
+    "fields": {
+        "client_id": "viuQMZdwhTLJXvlma143KdhivQaqglC7qMp57eFW",
+        "user": 1,
+        "redirect_uris": "",
+        "client_type": "confidential",
+        "authorization_grant_type": "client-credentials",
+        "client_secret": "Z5kQEk1EvvHuxwLRz5MDaGCXAS5CSxn89uDmlKP9Vu7MADmlpelzfkFXtSXxjAwZMtV4mX9ZsxwQKrjJamF9QpFzLknKo1rzQ9wIHAP6qZBoBh0EFZETSctaoTMlsMXD",
+        "name": "Client credentials flow",
+        "skip_authorization": false,
+        "created": "2020-07-26T16:54:59.195Z",
+        "updated": "2020-07-26T16:59:15.297Z"
+    }
+},
+{
+    "model": "oauth2_provider.application",
+    "pk": 3,
+    "fields": {
+        "client_id": "evchzO3Ds2MIJqWZFyd4SBr0TtJAhb8n76KrmKgL",
+        "user": 1,
+        "redirect_uris": "http://localhost:3000/callback/",
+        "client_type": "public",
+        "authorization_grant_type": "implicit",
+        "client_secret": "hZ7ulzDhngF7YipPrmXOaxQ1eCbEvYe8uENNFZQZNsm59Fn04qPnR7HtwbarRN487iWi1KbsdERRozbpZjw8dX4bA25rcloG6Ox0Eh23663SBg49BHTWmgiADh5YOkrP",
+        "name": "Implicit flow",
+        "skip_authorization": false,
+        "created": "2020-07-26T17:05:34.802Z",
+        "updated": "2020-07-26T17:05:34.802Z"
+    }
+},
+{
+    "model": "oauth2_provider.application",
+    "pk": 4,
+    "fields": {
+        "client_id": "deHqCJTauxHBZsqrfSqZvKuwxz91D42vFbU7Lryh",
+        "user": 1,
+        "redirect_uris": "http://127.0.0.1:5000/callback/",
+        "client_type": "confidential",
+        "authorization_grant_type": "authorization-code",
+        "client_secret": "3QRyap6kS6U1BcPiAPzln0deK0x9iVpXCaOvnTe7P7zgYJQ8al1lXg2GpXlAOVkmK4Daz4iRf5WdODYDhCvtF4EGZqKueSrk6OZaKXuQVsVjK0p3xEeYsjrakLzdHpcU",
+        "name": "Authorization code flow",
+        "skip_authorization": false,
+        "created": "2020-07-26T17:08:03.117Z",
+        "updated": "2020-07-26T17:08:10.484Z"
+    }
+}
+]
