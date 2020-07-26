@@ -2,6 +2,8 @@
 from django_countries.serializer_fields import CountryField
 from rest_framework import serializers
 
+from .models import BusinessType
+
 
 class UserDetailsSerializer(serializers.Serializer):
     """User detail serializer."""
@@ -49,3 +51,75 @@ class ProfileSerializer(serializers.Serializer):
     date_joined = serializers.DateTimeField(read_only=True)
 
     expired_at = serializers.DateTimeField(read_only=True)
+
+
+class UserInfoSerializer(serializers.Serializer):
+    """User info serializer."""
+
+    uuid = serializers.UUIDField(read_only=True)
+
+    username = serializers.CharField(read_only=True)
+
+    email = serializers.EmailField(read_only=True)
+
+    picture = serializers.ImageField(read_only=True)
+
+
+class AddressSerializer(serializers.Serializer):
+    """Address serializer."""
+
+    country = CountryField(read_only=True, country_dict=True)
+
+    city = serializers.CharField(read_only=True)
+
+    street = serializers.CharField(read_only=True)
+
+    house_number = serializers.CharField(read_only=True)
+
+
+class FingerprintSerializer(serializers.Serializer):
+    """Fingerprint serializer."""
+
+    picture = serializers.ImageField(read_only=True)
+
+
+class UserProfileSerializer(serializers.Serializer):
+    """User profile serializer."""
+
+    personal_identity_number = serializers.CharField(read_only=True, source="pin")
+
+    full_name = serializers.CharField(read_only=True)
+
+    phone_number = serializers.CharField(read_only=True)
+
+    date_of_birth = serializers.DateTimeField(read_only=True)
+
+    born = CountryField(read_only=True, country_dict=True)
+
+    nationality = CountryField(read_only=True, country_dict=True)
+
+    expired_at = serializers.DateTimeField(read_only=True)
+
+    addresses = AddressSerializer(read_only=True, many=True)
+
+    fingerprints = FingerprintSerializer(read_only=True, many=True)
+
+
+class BusinessSerializer(serializers.Serializer):
+    """Business serializer."""
+
+    name = serializers.CharField()
+
+    description = serializers.CharField()
+
+    city = serializers.CharField()
+
+    sub_city = serializers.CharField()
+
+    type = serializers.ChoiceField(choices=BusinessType.choices)
+
+    owners = serializers.StringRelatedField(many=True, required=False)
+
+    create_at = serializers.DateTimeField()
+
+    is_active = serializers.BooleanField(read_only=True)

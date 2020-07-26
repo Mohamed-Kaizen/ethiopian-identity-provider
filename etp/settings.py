@@ -347,9 +347,10 @@ LOGOUT_ON_PASSWORD_CHANGE = True
 OAUTH2_PROVIDER = {
     "OAUTH2_VALIDATOR_CLASS": "etp.validators.AxesOAuth2Validator",
     "SCOPES": {
-        "read": "Read scope",
-        "write": "Write scope",
-        "groups": "Access to your groups",
+        "user": "Read your user info like username, email, profile picture",
+        "user:profile": "Read your personal info",
+        "business:accepted": "Read all accepted business",
+        "business:requested": "Read all requested business",
     },
 }
 
