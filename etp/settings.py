@@ -318,6 +318,8 @@ if not DEBUG:
 # ------------------------------------------------------------------------------
 SIMPLE_JWT = {
     "USER_ID_FIELD": "uuid",
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=7),  # changed on production
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=14),  # changed on production
 }
 
 # dj-rest-auth
