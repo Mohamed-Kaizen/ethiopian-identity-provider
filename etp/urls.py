@@ -9,6 +9,8 @@ from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 
+from .views import home
+
 schema_view = get_schema_view(
     openapi.Info(
         title="Ethiopian Identity Provider API",
@@ -22,6 +24,7 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = i18n_patterns(
+    path("", home),
     path(f"{settings.ADMIN_URL}/", admin.site.urls),
     path(
         ".well-known/security.txt",

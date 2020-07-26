@@ -75,7 +75,6 @@ MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",  # django-cors-headers
     "whitenoise.middleware.WhiteNoiseMiddleware",  # whitenoise
     "django.contrib.sessions.middleware.SessionMiddleware",
-    "oauth2_provider.middleware.OAuth2TokenMiddleware",
     "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -375,3 +374,5 @@ else:
     ENVIRONMENT_COLOR = "green"
 
 CUSTOM_RESERVED_NAMES: List[str] = []
+
+HOME_PAGE_URL = config("HOME_PAGE_URL", cast=str)

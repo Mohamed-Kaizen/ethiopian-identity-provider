@@ -36,12 +36,6 @@ class AxesOAuth2Validator(OAuth2Validator):
         Returns:
             bool
         """
-        print(type(username))
-        print(type(password))
-        print(type(client))
-        print(type(request))
-        print(type(args))
-        print(type(kwargs))
         _request = request
         if request and not isinstance(request, HttpRequest):
             request = HttpRequest()
