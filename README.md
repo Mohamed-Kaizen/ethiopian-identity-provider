@@ -3,6 +3,9 @@
 >
 > See the list of Known Issues and TODOs, below, for updates.
 
+[Online Documentation](https://mohamed-kaizen.github.io/ethiopian-identity-provider/)
+
+
 ## Overview
 
 Ethiopian Identity Provider platform
@@ -14,7 +17,7 @@ Ethiopian Identity Provider platform
 
 ```shell tab="Shell or CMD"
 
-git clone https://github.com/Mohamed-Kaizen/etp
+git clone https://github.com/Mohamed-Kaizen/ethiopian-identity-provider/
 ```
 
 * install dependence:
@@ -42,6 +45,7 @@ create .env in the root of the project or set your ENV add the following line in
     EMAIL_USER=example@example.com
     EMAIL_PASSWORD=''
     DROPBOX_OAUTH2_TOKEN=''
+    HOME_PAGE_URL=''
 
 
 ```shell tab="shell or CMD"
@@ -57,4 +61,4 @@ enjoy :)
 # License: MIT
 
 
-[Ethiopian Identity Provider]: https://github.com/Mohamed-Kaizen/etp
+[Ethiopian Identity Provider]: https://github.com/Mohamed-Kaizen/ethiopian-identity-provider/
