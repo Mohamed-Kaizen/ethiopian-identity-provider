@@ -27,13 +27,36 @@ plugins:
       default_handler: python
       handlers:
         python:
+          setup_commands:
+            - import os
+            - import django
+            - os.environ.setdefault("DJANGO_SETTINGS_MODULE", "etp.settings")
+            - django.setup()
           rendering:
             show_source: true
       watch:
         - etp
+        - users
 
 nav:
- - Home: 'index.md'
+  - Home: 'index.md'
+  - BackEnd:
+      - Setup: "backend/index.md"
+      - Command: "backend/command.md"
+  - FrontEnd:
+      - Setup: "frontend/index.md"
+  - Reference:
+      - Validationrs: "reference/validators.md"
+      - Views: "reference/views.md"
+      - Users:
+          - Adapter: "reference/users/adapter.md"
+          - Admin: "reference/users/admin.md"
+          - Context Processors: "reference/users/context_processors.md"
+          - Forms: "reference/users/forms.md"
+          - Models: "reference/users/models.md"
+          - Permissions: "reference/users/permissions.md"
+          - Utils: "reference/users/utils.md"
+          - Validators: "reference/users/validators.md"
 
 
 markdown_extensions:
@@ -48,3 +71,12 @@ markdown_extensions:
             class: mermaid
             format: !!python/name:pymdownx.superfences.fence_div_format
   - pymdownx.tabbed
+
+extra_css:
+    - 'css/termynal.css'
+    - 'css/custom.css'
+
+extra_javascript:
+    - 'js/mermaid.min.js'
+    - 'js/termynal.js'
+    - 'js/custom.js'
