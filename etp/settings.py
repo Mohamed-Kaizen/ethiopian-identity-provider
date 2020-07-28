@@ -352,6 +352,7 @@ OAUTH2_PROVIDER = {
         "business:accepted": "Read all accepted business",
         "business:requested": "Read all requested business",
     },
+    # "REQUEST_APPROVAL_PROMPT": "auto",  # to ask user for authorization only once
 }
 
 # django-reversion-compare
