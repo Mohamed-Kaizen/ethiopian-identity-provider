@@ -15,7 +15,7 @@
 
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <meta name="description" content="My App">
+        <meta name="description" content="Ethiopia Identity Administrator Platform">
 
         <!-- See https://goo.gl/OOhYW5 -->
         <link rel="manifest" href="{% static 'manifest.json' %}">
@@ -25,12 +25,12 @@
 
         <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
         <meta name="mobile-web-app-capable" content="yes">
-        <meta name="application-name" content="My App">
+        <meta name="application-name" content="Ethiopia Identity Administrator">
 
         <!-- Add to homescreen for Safari on iOS -->
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-        <meta name="apple-mobile-web-app-title" content="My App">
+        <meta name="apple-mobile-web-app-title" content="Ethiopia Identity Administrator">
 
         <!-- Homescreen icons -->
         <link rel="apple-touch-icon" href="{% static 'images/manifest/icon_48.png' %}">
@@ -47,28 +47,18 @@
     {% endblock meta %}
 
     <link rel="icon" href="{% static 'images/favicon.ico' %}">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 
     <title>{% block title %}Title{% endblock title %}</title>
 
-    {% block stylesheet %}
-
-    {% endblock stylesheet %}
-
 </head>
 
-<body>
+<body class="bg-gray-200">
 
 {% block content %}
 
 
 {% endblock content %}
-
-{% block script %}
-
-
-{% endblock script %}
-
-<noscript>Please enable JavaScript to view this website.</noscript>
 
 </body>
 
