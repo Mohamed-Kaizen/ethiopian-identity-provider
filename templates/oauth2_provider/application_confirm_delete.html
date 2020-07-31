@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block title %}{% trans "Delete" %} {{ application.name }} ?{% endblock %}
+
+{% block content %}
+    <div class="flex flex-col items-center justify-center">
+
+        <img class="mt-8 w-1/4 h-1/4" src="{{ MEDIA_URL }}images/undraw_throw_away_ldjd.svg" alt="Empty apps" />
+
+        <h3 class="mt-4 text-2xl capitalize">
+            {% trans "Are you sure to delete" %}
+            <strong>{{ application.name }}</strong>
+            {% trans "app?" %}
+        </h3>
+
+        <form method="post" action="{% url 'oauth2_provider:delete' application.pk %}">
+            {% csrf_token %}
+
+                <div class="mt-4 flex items-center justify-center">
+
+                    <a class="mr-2 px-4 py-2 rounded-lg  uppercase" href="{% url "oauth2_provider:list" %}">{% trans "Cancel" %}</a>
+
+                    <input
+                            class="ml-2 px-4 py-2 bg-red-600 text-white rounded-lg cursor-pointer uppercase"
+                            type="submit"  name="allow" value="{% trans "Delete" %}"
+                    />
+
+                </div>
+
+        </form>
+
+    </div>
+
+{% endblock content %}
