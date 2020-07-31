@@ -2,6 +2,7 @@
 
 {% load i18n %}
 
+{% block title %}{% trans "Register Application" %}{% endblock %}
 {% block app-form-title %}{% trans "Register new application" %}{% endblock app-form-title %}
 
 {% block app-form-action-url %}{% url 'oauth2_provider:register' %}{% endblock app-form-action-url %}

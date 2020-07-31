@@ -2,7 +2,7 @@
 
 {% load i18n %}
 
-{% block title %}{% trans "Register Application" %}{% endblock %}
+{% block title %}{% trans "Update" %} {{ application.name }}{% endblock %}
 
 {% block content %}
 
@@ -21,12 +21,7 @@
         </div>
 
         <form class="w-64 lg:w-2/5 p-6 bg-white shadow-md rounded-lg" method="post" action="
-
-
-
-
                 {% block app-form-action-url %}{% url 'oauth2_provider:update' application.id %}{% endblock app-form-action-url %}">
-
             {% csrf_token %}
 
             {% for field in form %}
@@ -37,7 +32,8 @@
 
                         <span class="{% block secret %}{% endblock secret %}">
 
-                            <label class="mt-6 block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                            <label class="mt-6 block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                   for="{{ field.id_for_label }}">{{ field.label }}</label>
 
                                 <input
                                         value="{{ field.value }}"
@@ -130,29 +126,31 @@
 
             {% endfor %}
 
-                {% for error in form.non_field_errors %}
+            {% for error in form.non_field_errors %}
 
-                    <span class="text-red-500 font-semibold">{{ error }}</span>
+                <span class="text-red-500 font-semibold">{{ error }}</span>
 
-                {% endfor %}
+            {% endfor %}
 
-                <hr class="my-6"/>
+            <hr class="my-6"/>
 
-                <div class="flex items-center justify-center">
-
-
-                    <a class="mr-2 px-4 py-2 rounded-lg" href="
+            <div class="flex items-center justify-center">
 
 
+                <a class="mr-2 px-4 py-2 rounded-lg" href="
 
 
-                            {% block app-form-back-url %}{% url "oauth2_provider:detail" application.id %}{% endblock app-form-back-url %}">
 
-                        {% trans "Go Back" %}
 
-                    </a>
 
-                    <button class="ml-2 px-4 py-2 bg-green-600 text-white  rounded-lg" type="submit">{% trans "Save" %}</button>
+                        {% block app-form-back-url %}{% url "oauth2_provider:detail" application.id %}{% endblock app-form-back-url %}">
+
+                    {% trans "Go Back" %}
+
+                </a>
+
+                <button class="ml-2 px-4 py-2 bg-green-600 text-white  rounded-lg"
+                        type="submit">{% trans "Save" %}</button>
 
 
             </div>

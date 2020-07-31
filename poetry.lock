@@ -320,7 +320,7 @@ description = "Keep track of failed login attempts in Django-powered sites."
 name = "django-axes"
 optional = false
 python-versions = "~=3.6"
-version = "5.4.1"
+version = "5.4.2"
 
 [package.dependencies]
 django = ">=2.0"
@@ -399,7 +399,7 @@ Django = ">=2.0"
 diff-match-patch = "*"
 
 [package.dependencies.tablib]
-extras = ["xls", "yaml", "html", "xlsx", "ods"]
+extras = ["ods", "html", "xls", "xlsx", "yaml"]
 version = ">=0.14.0"
 
 [[package]]
@@ -733,9 +733,10 @@ description = "A Python utility / library to sort Python imports."
 name = "isort"
 optional = false
 python-versions = ">=3.6,<4.0"
-version = "5.2.0"
+version = "5.2.2"
 
 [package.extras]
+colors = ["colorama (>=0.4.3,<0.5.0)"]
 pipfile_deprecated_finder = ["pipreqs", "requirementslib", "tomlkit (>=0.5.3)"]
 requirements_deprecated_finder = ["pipreqs", "pip-api"]
 
@@ -1823,8 +1824,8 @@ django-appconf = [
     {file = "django_appconf-1.0.4-py2.py3-none-any.whl", hash = "sha256:1b1d0e1069c843ebe8ae5aa48ec52403b1440402b320c3e3a206a0907e97bb06"},
 ]
 django-axes = [
-    {file = "django-axes-5.4.1.tar.gz", hash = "sha256:652a5f1fec0fdfb9fd8d6f44b0ce22189577a8c5932b60827a8ff074d6d093d9"},
-    {file = "django_axes-5.4.1-py3-none-any.whl", hash = "sha256:1e2532e8bf3b9d7c283f8b079e2c716e9fd97c921e95053549d262cef0eb3691"},
+    {file = "django-axes-5.4.2.tar.gz", hash = "sha256:061969fb2e71ad060d8b694c2219f3d50b5c35838b2485b79f7045a2a56a7449"},
+    {file = "django_axes-5.4.2-py3-none-any.whl", hash = "sha256:41eedff63a03c3e2a21ca818ecb6d8c2fd7a4b18c8f7615320c5a235b4899271"},
 ]
 django-cors-headers = [
     {file = "django-cors-headers-3.4.0.tar.gz", hash = "sha256:f5218f2f0bb1210563ff87687afbf10786e080d8494a248e705507ebd92d7153"},
@@ -1948,8 +1949,8 @@ inflection = [
     {file = "inflection-0.5.0.tar.gz", hash = "sha256:f576e85132d34f5bf7df5183c2c6f94cfb32e528f53065345cf71329ba0b8924"},
 ]
 isort = [
-    {file = "isort-5.2.0-py3-none-any.whl", hash = "sha256:1b0265ff0639af0a6f0f95a44956a985a1256960905aaf57ecf9175356c54ced"},
-    {file = "isort-5.2.0.tar.gz", hash = "sha256:27c7f27adc4b1a6afde1b66c8af46d42da03671d68648e2a8ab2166df03b668e"},
+    {file = "isort-5.2.2-py3-none-any.whl", hash = "sha256:aea484023188ef1c38256dd24afa96e914adafe3a911a1786800a74e433006d1"},
+    {file = "isort-5.2.2.tar.gz", hash = "sha256:96b27045e3187b9bdde001143b79f9b10a462f372bff7062302818013b6c86f3"},
 ]
 itypes = [
     {file = "itypes-1.2.0-py2.py3-none-any.whl", hash = "sha256:03da6872ca89d29aef62773672b2d408f490f80db48b23079a4b194c86dd04c6"},
