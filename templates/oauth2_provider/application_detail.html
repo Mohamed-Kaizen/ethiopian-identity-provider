@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block title %}{% trans "Detail" %} {{ application.name }}{% endblock %}
+
+{% block content %}
+
+    <div class="my-8 flex flex-col items-center justify-center">
+
+        <div class="mt-4 mb-8 mx-4 flex flex-col items-center justify-center">
+
+            <h3 class="text-2xl capitalize">
+
+                {% block app-form-title %}
+                    {% trans "detail" %} <strong>{{ application.name }}</strong>
+                {% endblock app-form-title %}
+
+            </h3>
+
+        </div>
+
+        <div class="w-64 lg:w-2/5 p-6 bg-white shadow-md rounded-lg">
+
+            <div class="capitalize">
+
+                {#       client id         #}
+                <label
+                        for="client_id"
+                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                >
+                    {% trans "client id" %}
+                </label>
+
+                <input
+                    value="{{ application.client_id }}"
+                    id="client_id"
+                    readonly
+                    disabled
+                    class="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight"
+                />
+
+                {#       client secret         #}
+                <label
+                        for="client_secret"
+                        class="mt-6 block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                >
+                    {% trans "client secret" %}
+                </label>
+
+                <textarea
+                        id="client_secret"
+                        class="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight"
+                        disabled
+                        readonly
+                >{{ application.client_secret }}</textarea>
+
+                {#       client type         #}
+                <label class="mt-6 block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                    {% trans "client type" %}
+                </label>
+
+                <label
+                        class="block w-full text-gray-900 font-medium"
+                >{{ application.client_type }}</label>
+
+                {#       authorization grant type         #}
+                <label class="mt-6 block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                    {% trans "authorization grant type" %}
+                </label>
+
+                <label
+                        class="block w-full text-gray-900 font-medium"
+                >{{ application.authorization_grant_type }}</label>
+
+                {#       redirect uris         #}
+                <label
+                        for="redirect_uris"
+                        class="mt-6 block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                >
+                    {% trans "redirect uris" %}
+                </label>
+
+                <textarea
+                        id="redirect_uris"
+                        class="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight"
+                        disabled
+                        readonly
+                >{{ application.redirect_uris }}</textarea>
+
+            </div>
+
+            <hr class="my-6"/>
+
+            <div class="flex flex-col lg:flex-row items-center justify-center">
+
+
+                <a
+                    class="mb-2 lg:mb-0 lg:mr-2 px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md"
+                    href="{% url "oauth2_provider:list" %}">
+                    {% trans "Go Back" %}
+                </a>
+
+                <a href="{% url "oauth2_provider:update" application.id %}"
+                   class="my-2 lg:my-0 lg:mx-2 px-8 py-2 bg-green-600 text-white rounded-lg shadow-md">
+                    {% trans "Edit" %}
+                </a>
+
+                <a href="{% url "oauth2_provider:delete" application.id %}"
+                   class="mt-2 lg:mt-0 lg:ml-2 px-6 py-2 bg-red-600 text-white rounded-lg shadow-md">
+                    {% trans "Delete" %}
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}
