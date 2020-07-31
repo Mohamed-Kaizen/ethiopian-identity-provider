@@ -19,11 +19,11 @@
 
                 <div class="mt-4 flex items-center justify-center">
 
-                    <a class="mr-2 px-4 py-2 rounded-lg  uppercase" href="{% url "oauth2_provider:authorized-token-list" %}">{% trans "Cancel" %}</a>
+                    <a class="mr-2 px-4 py-2 rounded-lg uppercase" href="{% url "oauth2_provider:authorized-token-list" %}">{% trans "Cancel" %}</a>
 
                     <input
-                            class="ml-2 px-4 py-2 bg-red-600 text-white rounded-lg cursor-pointer uppercase"
-                            type="submit"  name="allow" value="{% trans "Delete" %}"
+                        class="ml-2 px-4 py-2 bg-red-600 text-white rounded-lg cursor-pointer uppercase shadow-md"
+                        type="submit"  name="allow" value="{% trans "Delete" %}"
                     />
 
                 </div>
