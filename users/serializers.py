@@ -123,3 +123,29 @@ class BusinessSerializer(serializers.Serializer):
     create_at = serializers.DateTimeField()
 
     is_active = serializers.BooleanField(read_only=True)
+
+
+class UserListSerializer(serializers.Serializer):
+    """User list serializer."""
+
+    id = serializers.UUIDField(read_only=True, source="pin")
+
+    username = serializers.CharField(read_only=True)
+
+    picture = serializers.ImageField(read_only=True)
+
+
+class BusinessCreateSerializer(serializers.Serializer):
+    """Business create serializer."""
+
+    name = serializers.CharField(max_length=200)
+
+    description = serializers.CharField()
+
+    city = serializers.CharField(max_length=200)
+
+    sub_city = serializers.CharField(max_length=200)
+
+    type = serializers.ChoiceField(choices=BusinessType.choices)
+
+    owners = serializers.ListField(required=False)
