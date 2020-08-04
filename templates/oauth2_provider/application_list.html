@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% load i18n %}
 
 {% block title %}{% trans "Application List" %}{% endblock %}
@@ -67,8 +67,7 @@
             </ul>
 
         {% empty %}
-
-            <img class="mt-8 w-1/4 h-1/4" src="{{ MEDIA_URL }}images/undraw_empty_xct9.svg" alt="Empty apps" />
+            <img class="mt-8 w-1/4 h-1/4" src="{% static 'images/undraw_empty_xct9.svg' %}" alt="Empty apps" />
         {% endfor %}
 
 
