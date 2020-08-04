@@ -113,7 +113,13 @@ class CustomUserAdmin(ExportActionModelAdmin, CompareVersionAdmin, UserAdmin):
             _("Important dates"),
             {
                 "classes": ("collapse",),
-                "fields": ("last_login", "date_joined", "expired_at"),
+                "fields": (
+                    "last_login",
+                    "date_joined",
+                    "expired_at",
+                    "has_expired",
+                    "natural_time",
+                ),
             },
         ),
     )
@@ -124,6 +130,8 @@ class CustomUserAdmin(ExportActionModelAdmin, CompareVersionAdmin, UserAdmin):
         "nationality",
         "born",
         "expired_at",
+        "has_expired",
+        "natural_time",
     )
 
     ordering = (
@@ -146,6 +154,8 @@ class CustomUserAdmin(ExportActionModelAdmin, CompareVersionAdmin, UserAdmin):
         "date_joined",
         "age",
         "expired_at",
+        "has_expired",
+        "natural_time",
         "pin",
     )
 

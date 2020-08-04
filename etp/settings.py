@@ -261,11 +261,6 @@ LOGGING = {
             "propagate": False,
         },
         "django.server": {"propagate": True},
-        "django.db.backends": {
-            "propagate": False,
-            "level": "DEBUG",
-            "handlers": ["console", "file"],
-        },
     },
     "formatters": {
         "my_formatter": {

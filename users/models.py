@@ -1,8 +1,13 @@
 """Collection of model."""
 import uuid
+from datetime import datetime
 from typing import Any
 
 from django.contrib.auth.models import AbstractUser
+from django.contrib.humanize.templatetags.humanize import (
+    naturalday,
+    naturaltime,
+)
 from django.db import models
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
@@ -37,6 +42,15 @@ def fingerprint_upload_to(instance: "Fingerprint", filename: str) -> str:
         path in string format
     """
     return f"images/profile_pics/{instance.user.username}/fingerprint/{filename}"
+
+
+def get_expired_date() -> datetime:
+    """A help Function that create expired date.
+
+    Returns:
+        expired date.
+    """
+    return timezone.now() + timezone.timedelta(days=365)
 
 
 class Status(models.TextChoices):
@@ -90,8 +104,7 @@ class CustomUser(AbstractUser):
     nationality = CountryField(verbose_name=_("nationality"))
 
     expired_at = models.DateTimeField(
-        verbose_name=_("expired at"),
-        default=timezone.now() + timezone.timedelta(days=365),
+        verbose_name=_("expired at"), default=get_expired_date,
     )
 
     class Meta:
@@ -112,6 +125,22 @@ class CustomUser(AbstractUser):
         except Exception as error:
             print(error)
             return ""
+
+    def natural_time(self: "CustomUser") -> str:
+        """Return natural time for expired date."""
+        return naturaltime(self.expired_at)
+
+    def natural_day(self: "CustomUser") -> str:
+        """Return natural day for expired date."""
+        return naturalday(self.expired_at)
+
+    def has_expired(self: "CustomUser") -> bool:
+        """Return bool if user has expired or not."""
+        return timezone.now() > self.expired_at
+
+    has_expired.boolean = True
+    has_expired.short_description = _("Is Expired ?")
+    natural_time.short_description = _("Expired in")
 
 
 class Address(models.Model):
@@ -248,6 +277,14 @@ class Business(models.Model):
     def __str__(self: "Business") -> str:
         """It return readable name for the model."""
         return f"{self.name}"
+
+    def natural_time(self: "Business") -> str:
+        """Return natural time for created date."""
+        return naturaltime(self.create_at)
+
+    def natural_day(self: "Business") -> str:
+        """Return natural day for created date."""
+        return naturalday(self.create_at)
 
 
 @receiver(pre_save, sender=CustomUser)

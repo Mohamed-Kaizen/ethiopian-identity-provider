@@ -52,6 +52,12 @@ class ProfileSerializer(serializers.Serializer):
 
     expired_at = serializers.DateTimeField(read_only=True)
 
+    has_expired = serializers.BooleanField(read_only=True)
+
+    expired_natural_time = serializers.CharField(read_only=True, source="natural_time")
+
+    expired_natural_day = serializers.CharField(read_only=True, source="natural_day")
+
 
 class UserInfoSerializer(serializers.Serializer):
     """User info serializer."""
@@ -108,21 +114,25 @@ class UserProfileSerializer(serializers.Serializer):
 class BusinessSerializer(serializers.Serializer):
     """Business serializer."""
 
-    name = serializers.CharField()
+    name = serializers.CharField(read_only=True)
 
-    description = serializers.CharField()
+    description = serializers.CharField(read_only=True)
 
-    city = serializers.CharField()
+    city = serializers.CharField(read_only=True)
 
-    sub_city = serializers.CharField()
+    sub_city = serializers.CharField(read_only=True)
 
     type = serializers.ChoiceField(choices=BusinessType.choices)
 
     owners = serializers.StringRelatedField(many=True, required=False)
 
-    create_at = serializers.DateTimeField()
-
     is_active = serializers.BooleanField(read_only=True)
+
+    create_at = serializers.DateTimeField(read_only=True)
+
+    natural_time = serializers.CharField(read_only=True)
+
+    natural_day = serializers.CharField(read_only=True)
 
 
 class UserListSerializer(serializers.Serializer):
