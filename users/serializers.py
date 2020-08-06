@@ -70,6 +70,12 @@ class UserInfoSerializer(serializers.Serializer):
 
     picture = serializers.ImageField(read_only=True)
 
+    has_expired = serializers.BooleanField(read_only=True)
+
+    expired_natural_time = serializers.CharField(read_only=True, source="natural_time")
+
+    expired_natural_day = serializers.CharField(read_only=True, source="natural_day")
+
 
 class AddressSerializer(serializers.Serializer):
     """Address serializer."""

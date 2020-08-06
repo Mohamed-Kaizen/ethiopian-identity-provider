@@ -233,7 +233,7 @@ class Renew(models.Model):
 class Business(models.Model):
     """Reference business model."""
 
-    name = models.CharField(verbose_name=_("name"), max_length=200, unique=True)
+    name = models.CharField(verbose_name=_("name"), max_length=200)
 
     description = models.TextField(verbose_name=_("description"))
 

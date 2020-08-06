@@ -1,5 +1,6 @@
 """Collection views."""
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 from django_filters.rest_framework import DjangoFilterBackend
 from oauth2_provider.contrib.rest_framework import TokenHasScope
 from rest_framework import generics, permissions, status
@@ -107,14 +108,25 @@ def renew_api(request: Request) -> Response:
     """Renew end point."""
     if request.user.expired_at > timezone.now():
         return Response(
-            {"detail": "Your account has not been expired yet"},
+            {"detail": _("Your account has not been expired yet")},
+            status.HTTP_400_BAD_REQUEST,
+        )
+
+    if Renew.objects.filter(user=request.user, status="Requested").first():
+        return Response(
+            {
+                "detail": _(
+                    "You have already send renew request. "
+                    "please wait still it been accepted."
+                )
+            },
             status.HTTP_400_BAD_REQUEST,
         )
 
     Renew.objects.create(user=request.user)
 
     return Response(
-        {"detail": "You send renew request successfully"}, status.HTTP_201_CREATED
+        {"detail": _("You send renew request successfully")}, status.HTTP_201_CREATED
     )
 
 
@@ -157,8 +169,18 @@ class BusinessCreateAPI(generics.GenericAPIView):
 
             owners = data.get("owners")
 
+            name = data.get("name")
+
+            if Business.objects.filter(name=name, status="Accepted").first():
+                return Response(
+                    {
+                        "detail": _(f"The name: {name} has been took. Try another name")
+                    },
+                    status.HTTP_400_BAD_REQUEST,
+                )
+
             new_business = Business.objects.create(
-                name=data.get("name"),
+                name=name,
                 description=data.get("description"),
                 city=data.get("city"),
                 sub_city=data.get("sub_city"),
