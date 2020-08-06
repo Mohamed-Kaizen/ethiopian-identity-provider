@@ -1,59 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://example.com/</loc>
-     <lastmod>2020-07-27</lastmod>
+     <lastmod>2020-08-06</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://example.com/backend/</loc>
-     <lastmod>2020-07-27</lastmod>
+     <lastmod>2020-08-06</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://example.com/backend/command/</loc>
-     <lastmod>2020-07-27</lastmod>
+     <lastmod>2020-08-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://example.com/backend/group_and_staff/</loc>
+     <lastmod>2020-08-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://example.com/backend/load_dump_data/</loc>
+     <lastmod>2020-08-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://example.com/backend/renew_and_businesses/</loc>
+     <lastmod>2020-08-06</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://example.com/frontend/</loc>
-     <lastmod>2020-07-27</lastmod>
+     <lastmod>2020-08-06</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://example.com/reference/validators/</loc>
-     <lastmod>2020-07-27</lastmod>
+     <lastmod>2020-08-06</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://example.com/reference/views/</loc>
-     <lastmod>2020-07-27</lastmod>
+     <lastmod>2020-08-06</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://example.com/reference/users/adapter/</loc>
-     <lastmod>2020-07-27</lastmod>
+     <lastmod>2020-08-06</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://example.com/reference/users/admin/</loc>
-     <lastmod>2020-07-27</lastmod>
+     <lastmod>2020-08-06</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://example.com/reference/users/context_processors/</loc>
-     <lastmod>2020-07-27</lastmod>
+     <lastmod>2020-08-06</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://example.com/reference/users/forms/</loc>
-     <lastmod>2020-07-27</lastmod>
+     <lastmod>2020-08-06</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://example.com/reference/users/models/</loc>
-     <lastmod>2020-07-27</lastmod>
+     <lastmod>2020-08-06</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://example.com/reference/users/permissions/</loc>
-     <lastmod>2020-07-27</lastmod>
+     <lastmod>2020-08-06</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://example.com/reference/users/utils/</loc>
-     <lastmod>2020-07-27</lastmod>
+     <lastmod>2020-08-06</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://example.com/reference/users/validators/</loc>
-     <lastmod>2020-07-27</lastmod>
+     <lastmod>2020-08-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
