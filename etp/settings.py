@@ -61,6 +61,7 @@ THIRD_PARTY_APPS = [
     "reversion",
     "reversion_compare",
     "django_countries",
+    "django_extensions"
 ]
 
 LOCAL_APPS = ["users.apps.UsersConfig"]
