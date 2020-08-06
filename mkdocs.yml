@@ -43,6 +43,9 @@ nav:
   - BackEnd:
       - Setup: "backend/index.md"
       - Command: "backend/command.md"
+      - Group and Staff: "backend/group_and_staff.md"
+      - Load Dump Data: "backend/load_dump_data.md"
+      - Handling Renew and Business Request: "backend/renew_and_businesses.md"
   - FrontEnd:
       - Setup: "frontend/index.md"
   - Reference:
@@ -71,6 +74,7 @@ markdown_extensions:
             class: mermaid
             format: !!python/name:pymdownx.superfences.fence_div_format
   - pymdownx.tabbed
+  - pymdownx.details
 
 extra_css:
     - 'css/termynal.css'

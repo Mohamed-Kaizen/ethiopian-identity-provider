@@ -23,6 +23,10 @@ Ethiopian Identity Provider platform
 - [NodeJs 12][NodeJs]
 - [Yarn (Optional)][Yarn]
 
+### Other
+    
+- [Git][Git]
+
 
 # License: MIT
 
@@ -30,3 +34,4 @@ Ethiopian Identity Provider platform
 [Poetry]: https://python-poetry.org/
 [NodeJs]: https://nodejs.org/en/download/
 [Yarn]: https://yarnpkg.com/
+[Git]: https://git-scm.com/

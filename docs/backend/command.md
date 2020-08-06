@@ -15,7 +15,7 @@ Migrations for 'users':
 $ python manage.py migrate
 
 Operations to perform:
-  Apply all migrations: admin, auth, contenttypes, polls, sessions
+  Apply all migrations: admin, auth, contenttypes, users, sessions
 Running migrations:
   Rendering model states... DONE
   Applying users.0001_initial... OK
