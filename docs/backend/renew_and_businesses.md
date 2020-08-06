@@ -7,12 +7,12 @@ you need to complete [How to load dump data tutorial](/backend/load_dump_data/)
 First login as `mohamed` with password `1234567899mnm`. Now you are login as staff user, from the dashboard 
 you see link called `Renews` clicked and you will see list of renew request.
 
-![Screenshot](/img/renew_list.png)
+![Screenshot](https://raw.githubusercontent.com/Mohamed-Kaizen/ethiopian-identity-provider/master/docs/img/renew_list.png)
 
 Click the action drop down menu and select `Mark selected request as Accepted` and select `bugs bunny` request
 and click go button.
 
-![Screenshot](/img/renew_list2.png)
+![Screenshot](https://raw.githubusercontent.com/Mohamed-Kaizen/ethiopian-identity-provider/master/docs/img/renew_list2.png)
 
 And you notice that `bugs bunny` request has been accepted, go to `bugs bunny` profile see the `expire_at`,
 the date it been updated by renew request created_at + 1 year.
@@ -22,7 +22,7 @@ the date it been updated by renew request created_at + 1 year.
 First login as `mohamed` with password `1234567899mnm`. Now you are login as staff user, from the dashboard 
 you see link called `Businesses` clicked and you will see list of businesses request.
 
-![Screenshot](/img/businesses_list.png)
+![Screenshot](https://raw.githubusercontent.com/Mohamed-Kaizen/ethiopian-identity-provider/master/docs/img/businesses_list.png)
 
 Click the action drop down menu and select either `Mark selected business request as Accepted` 
 or `Mark selected business request as Deny` and select `Strategy Tap` request
