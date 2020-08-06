@@ -61,7 +61,6 @@ THIRD_PARTY_APPS = [
     "reversion",
     "reversion_compare",
     "django_countries",
-    "django_extensions"
 ]
 
 LOCAL_APPS = ["users.apps.UsersConfig"]
@@ -310,6 +309,13 @@ if DEBUG:
     INSTALLED_APPS.insert(0, "whitenoise.runserver_nostatic")
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+
+# django-extensions
+# ------------------------------------------------------------------------------
+if DEBUG:
+    INSTALLED_APPS.append("django_extensions")
+
 
 # django-debug-toolbar
 # ------------------------------------------------------------------------------
