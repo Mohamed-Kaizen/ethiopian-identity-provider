@@ -78,6 +78,7 @@
                         <path d="M0 0h24v24H0z" fill="none"/>
                         <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
                     </svg>
+
                     <div class="ml-6 flex flex-col">
 
 
@@ -100,6 +101,14 @@
 
                                 {% if scope == "business:requested" %}
                                     <span class="mb-1 text-sm text-gray-700">{% trans "Requested Business (read-only)" %}</span>
+                                {% endif %}
+
+                                {% if scope == "business:write" %}
+                                    <span class="mb-1 text-sm text-gray-700">{% trans "Create business request" %}</span>
+                                {% endif %}
+
+                                {% if scope == "renew:write" %}
+                                    <span class="mb-1 text-sm text-gray-700">{% trans "Create renew request" %}</span>
                                 {% endif %}
 
 

@@ -403,6 +403,8 @@ OAUTH2_PROVIDER = {
         "user:profile": "Read your personal info",
         "business:accepted": "Read all accepted business",
         "business:requested": "Read all requested business",
+        "business:write": "Write new business request",
+        "renew:write": "Write new renew request",
     },
     # "REQUEST_APPROVAL_PROMPT": "auto",  # to ask user for authorization only once
 }
