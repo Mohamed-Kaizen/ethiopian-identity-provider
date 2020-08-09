@@ -24,4 +24,11 @@ class User(models.Model):
         exclude = ["id", "uuid"]
 
 
+class StateCode(models.Model):
+    """The StateCode model."""
+
+    code = fields.CharField(max_length=500, unique=True)
+    is_used = fields.BooleanField()
+
+
 User_Pydantic = pydantic_model_creator(User, name="User")
