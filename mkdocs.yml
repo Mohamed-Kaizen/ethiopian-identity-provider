@@ -48,6 +48,10 @@ nav:
       - Handling Renew and Business Request: "backend/renew_and_businesses.md"
   - FrontEnd:
       - Setup: "frontend/index.md"
+      - Sign In and Profile: "frontend/sign_in_and_profile.md"
+      - Update an expired account: "frontend/renew.md"
+      - Create new bussiness: "frontend/new_business.md"
+      - Ingrate your server with ETP: "frontend/new_app.md"
   - Reference:
       - Validationrs: "reference/validators.md"
       - Views: "reference/views.md"
