@@ -4,7 +4,6 @@ from django.utils.translation import gettext_lazy as _
 from django_filters.rest_framework import DjangoFilterBackend
 from oauth2_provider.contrib.rest_framework import TokenHasScope
 from rest_framework import generics, permissions, status
-from rest_framework.decorators import api_view, permission_classes
 from rest_framework.filters import OrderingFilter, SearchFilter
 from rest_framework.request import Request
 from rest_framework.response import Response
@@ -164,56 +163,6 @@ class OauthBusinessCreateAPI(generics.GenericAPIView):
             return Response(data)
 
 
-@api_view(["GET"])
-@permission_classes([permissions.IsAuthenticated])
-def accepted_business_api(request: Request) -> Response:
-    """Accepted business end point."""
-    businesses = request.user.businesses.filter(status="Accepted")
-
-    serializer = BusinessSerializer(businesses, many=True)
-
-    return Response(serializer.data)
-
-
-@api_view(["GET"])
-@permission_classes([permissions.IsAuthenticated])
-def requested_business_api(request: Request) -> Response:
-    """Requested business end point."""
-    businesses = request.user.businesses.filter(status="Requested")
-
-    serializer = BusinessSerializer(businesses, many=True)
-
-    return Response(serializer.data)
-
-
-@api_view(["POST"])
-@permission_classes([permissions.IsAuthenticated])
-def renew_api(request: Request) -> Response:
-    """Renew end point."""
-    if request.user.expired_at > timezone.now():
-        return Response(
-            {"detail": _("Your account has not been expired yet")},
-            status.HTTP_400_BAD_REQUEST,
-        )
-
-    if Renew.objects.filter(user=request.user, status="Requested").first():
-        return Response(
-            {
-                "detail": _(
-                    "You have already send renew request. "
-                    "Please wait till it been accepted."
-                )
-            },
-            status.HTTP_400_BAD_REQUEST,
-        )
-
-    Renew.objects.create(user=request.user)
-
-    return Response(
-        {"detail": _("You send renew request successfully")}, status.HTTP_201_CREATED
-    )
-
-
 class UsersListAPI(generics.ListAPIView):
     """User list API."""
 
@@ -230,53 +179,3 @@ class UsersListAPI(generics.ListAPIView):
     ordering = ("username",)
 
     ordering_fields = ("full_name", "username", "email")
-
-
-class BusinessCreateAPI(generics.GenericAPIView):
-    """Business create API."""
-
-    permission_classes = [permissions.IsAuthenticated]
-
-    serializer_class = BusinessCreateSerializer
-
-    def post(self: "BusinessCreateAPI", request: Request) -> Response:
-        """Business post API."""
-        serializer = self.get_serializer(data=request.data)
-
-        if serializer.is_valid(raise_exception=True):
-
-            data = serializer.data
-
-            business_type = data.get("type")
-
-            owners = data.get("owners")
-
-            name = data.get("name")
-
-            if Business.objects.filter(name=name, status="Accepted").first():
-                return Response(
-                    {"detail": _(f"The name: {name} has been took. Try another name")},
-                    status.HTTP_400_BAD_REQUEST,
-                )
-
-            new_business = Business.objects.create(
-                name=name,
-                description=data.get("description"),
-                city=data.get("city"),
-                sub_city=data.get("sub_city"),
-                type=business_type,
-                requested_by=request.user,
-            )
-
-            new_business.owners.add(request.user)
-
-            if "Sole Proprietorship" != business_type and owners:
-
-                for owner in owners:
-
-                    user = CustomUser.objects.filter(username=owner).first()
-
-                    if user:
-                        new_business.owners.add(user)
-
-            return Response(data)
