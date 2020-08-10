@@ -2,14 +2,14 @@
 from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import LoginView
 from django.urls import include, path, re_path
 from django.views.generic import TemplateView
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 
-from .views import home
+from .views import home, sign_out
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -24,7 +24,7 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = i18n_patterns(
-    path("", home),
+    path("", home, name="home"),
     path(f"{settings.ADMIN_URL}/", admin.site.urls),
     path(
         ".well-known/security.txt",
@@ -34,8 +34,8 @@ urlpatterns = i18n_patterns(
         "robots.txt",
         TemplateView.as_view(template_name="robots.txt", content_type="text/plain",),
     ),
-    path("accounts/login/", LoginView.as_view()),
-    path("accounts/logout/", LogoutView.as_view()),
+    path("login/", LoginView.as_view(), name="sign_in"),
+    path("accounts/logout/", sign_out, name="sign_out"),
     path("api/users/", include("users.urls")),
     path("o/", include("oauth2_provider.urls", namespace="oauth2_provider")),
     re_path(

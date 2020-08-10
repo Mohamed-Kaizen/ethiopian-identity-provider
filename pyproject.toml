@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "etp"
-version = "0.2.0"
+version = "0.3.0"
 description = "Ethiopian Identity Provider platform"
 authors = ["Mohamed Nesredin <m.n.kaizen@gmail.com>"]
 license = "MIT"

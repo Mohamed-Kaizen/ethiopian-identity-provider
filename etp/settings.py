@@ -97,6 +97,11 @@ AUTHENTICATION_BACKENDS = (
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-user-model
 AUTH_USER_MODEL = "users.CustomUser"
 
+# https://docs.djangoproject.com/en/dev/ref/settings/#login-redirect-url
+LOGIN_REDIRECT_URL = "home"
+
+# https://docs.djangoproject.com/en/dev/ref/settings/#login-url
+LOGIN_URL = "sign_in"
 
 # PASSWORDS
 # ------------------------------------------------------------------------------

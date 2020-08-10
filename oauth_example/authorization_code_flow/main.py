@@ -22,7 +22,7 @@ register_tortoise(
     add_exception_handlers=True,
 )
 
-server_url = "https://ethiopia-identity-provider.herokuapp.com"
+server_url = "http://127.0.0.1:8000"
 
 client_id = "deHqCJTauxHBZsqrfSqZvKuwxz91D42vFbU7Lryh"
 
