@@ -221,6 +221,33 @@
         "user_permissions": []
     }
 },
+  {
+    "model": "users.customuser",
+    "pk": 9,
+    "fields": {
+        "password": "argon2$argon2i$v=19$m=512,t=2,p=2$d3RVelRGRXNBa291$JBN2Epuuwmy2rhv+xc62yA",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "leul",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2018-07-26T16:13:55.083Z",
+        "uuid": "781c8c80-2dba-4a70-9d30-fb9edd5a0d91",
+        "pin": "550-810-757-376",
+        "email": "leulsegedtariku@gmail.com",
+        "full_name": "Leulseged Tariku",
+        "picture": "images/profile_pics/leul/leul.jpeg",
+        "phone_number": "0910964792",
+        "date_of_birth": "1994-07-26T16:13:38Z",
+        "born": "MS",
+        "nationality": "SK",
+        "expired_at": "2019-07-26T16:05:00.017Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
 {
     "model": "users.address",
     "pk": 1,

@@ -62,5 +62,21 @@
         "created": "2020-07-26T17:08:03.117Z",
         "updated": "2020-07-26T17:08:10.484Z"
     }
+},
+  {
+    "model": "oauth2_provider.application",
+    "pk": 5,
+    "fields": {
+        "client_id": "v6Sy2qkT2IoNsKHb8lyHMpGo9ZKML5HsE5ISS81x",
+        "user": 9,
+        "redirect_uris": "http://127.0.0.1:5000/callback/",
+        "client_type": "confidential",
+        "authorization_grant_type": "authorization-code",
+        "client_secret": "nfUt0iyA37bptuOdVkCx4llkKsMKWDQZfbjRmq3ZzeFVaVGpRTsoeraIIRXQKUO5Ebn7fIPkbeMZ6d3wCWCr554peXw42rWnN4Q3yQPxsjpBGzLIpl0MFB2OiGkTysmP",
+        "name": "AxumHUB",
+        "skip_authorization": false,
+        "created": "2020-07-26T17:08:03.117Z",
+        "updated": "2020-07-26T17:08:10.484Z"
+    }
 }
 ]
