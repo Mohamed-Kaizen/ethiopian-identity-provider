@@ -1,5 +1,6 @@
 {% extends "admin/base_site.html" %}
 {% load static %}
+{% load i18n %}
 
 {% block extrastyle %}
 
@@ -16,4 +17,20 @@ body:before {
     }
 </style>
 
+{% endblock %}
+
+{% block nav-global %}
+     <form action="{% url 'set_language' %}" method="POST">
+        {% csrf_token %}
+
+         <input type="hidden" id="languageSwitcher" name="selected" value="{{ redirect_to}}">
+
+             <select name="language" id="languageField">
+                <option value="en" {% if "en" == LANGUAGE_CODE %} selected {% endif %}>{% trans "English" %}</option>
+                <option value="am" {% if "am" == LANGUAGE_CODE %} selected {% endif %}>{% trans "Amharic" %}</option>
+                <option value="ar" {% if "ar" == LANGUAGE_CODE %} selected {% endif %}>{% trans "Arabic" %}</option>
+            </select>
+
+        <input type="submit" id="languageSwitcher" value="Change">
+    </form>
 {% endblock %}

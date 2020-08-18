@@ -75,6 +75,13 @@
                                         <span class="mb-1 text-sm text-gray-700">{% trans "Requested Business (read-only)" %}</span>
                                     {% endif %}
 
+                                    {% if scope_name == "business:write" %}
+                                        <span class="mb-1 text-sm text-gray-700">{% trans "Create business request" %}</span>
+                                    {% endif %}
+
+                                    {% if scope_name == "renew:write" %}
+                                        <span class="mb-1 text-sm text-gray-700">{% trans "Create renew request" %}</span>
+                                    {% endif %}
 
                                 {% endfor %}
 
@@ -93,7 +100,7 @@
             <img
                     class="mt-32 w-1/4 h-1/4"
                     src="{% static 'images/undraw_empty_xct9.svg' %}"
-                    alt="Empty authorized apps"
+                    alt="{% trans "Empty authorized apps" %}"
             />
 
 

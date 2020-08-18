@@ -4,6 +4,7 @@ from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.contrib.auth.views import LoginView
 from django.urls import include, path, re_path
+from django.utils.translation import gettext_lazy as _
 from django.views.generic import TemplateView
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
@@ -13,9 +14,9 @@ from .views import home, sign_out
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Ethiopian Identity Provider API",
-        default_version="v1",
-        description="Ethiopian Identity Provider platform",
+        title=_("Ethiopian Identity Provider API"),
+        default_version=_("v1"),
+        description=_("Ethiopian Identity Provider platform"),
         contact=openapi.Contact(email="m.n.kaizen@gmail.com"),
         license=openapi.License(name="MIT License"),
     ),
@@ -24,6 +25,7 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = i18n_patterns(
+    path(route="i18n/", view=include("django.conf.urls.i18n")),
     path("", home, name="home"),
     path(f"{settings.ADMIN_URL}/", admin.site.urls),
     path(

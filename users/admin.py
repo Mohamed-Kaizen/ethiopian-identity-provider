@@ -283,8 +283,8 @@ class BusinessAdmin(CompareVersionAdmin):
         queryset.update(status="Deny")
         queryset.update(is_active=False)
 
-    make_accepted.short_description = "Mark selected business request as Accepted"
-    make_deny.short_description = "Mark selected business request as Deny"
+    make_accepted.short_description = _("Mark selected business request as Accepted")
+    make_deny.short_description = _("Mark selected business request as Deny")
 
 
 patch_admin(Application)

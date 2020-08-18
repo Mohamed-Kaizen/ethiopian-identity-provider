@@ -53,10 +53,6 @@ THIRD_PARTY_APPS = [
     "storages",
     "drf_yasg",
     "django_filters",
-    "allauth",
-    "allauth.account",
-    "allauth.socialaccount",
-    "dj_rest_auth",
     "oauth2_provider",
     "reversion",
     "reversion_compare",
@@ -91,7 +87,6 @@ AUTHENTICATION_BACKENDS = (
     "axes.backends.AxesBackend",
     "oauth2_provider.backends.OAuth2Backend",
     "django.contrib.auth.backends.ModelBackend",
-    "allauth.account.auth_backends.AuthenticationBackend",
 )
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-user-model
@@ -302,7 +297,6 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "oauth2_provider.contrib.rest_framework.OAuth2Authentication",
         "rest_framework.authentication.SessionAuthentication",
-        "dj_rest_auth.utils.JWTCookieAuthentication",
     ),
     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.AllowAny",),
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
@@ -370,34 +364,6 @@ if not DEBUG:
     DROPBOX_OAUTH2_TOKEN = config("DROPBOX_OAUTH2_TOKEN", cast=str)
 
     DROPBOX_ROOT_PATH = "media"
-
-# djangorestframework-simplejwt
-# ------------------------------------------------------------------------------
-SIMPLE_JWT = {
-    "USER_ID_FIELD": "uuid",
-    "ACCESS_TOKEN_LIFETIME": timedelta(days=7),  # changed on production
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=14),  # changed on production
-}
-
-# dj-rest-auth
-# ------------------------------------------------------------------------------
-REST_USE_JWT = True
-
-ACCOUNT_AUTHENTICATION_METHOD = "username_email"
-
-ACCOUNT_EMAIL_REQUIRED = True
-
-REST_AUTH_SERIALIZERS = {
-    "USER_DETAILS_SERIALIZER": "users.serializers.ProfileSerializer",
-    "JWT_SERIALIZER": "users.serializers.JWTSerializer",
-}
-
-ACCOUNT_ADAPTER = "users.adapter.CustomAccountAdapter"
-
-OLD_PASSWORD_FIELD_ENABLED = True
-
-LOGOUT_ON_PASSWORD_CHANGE = True
-
 
 # django-oauth-toolkit
 # ------------------------------------------------------------------------------

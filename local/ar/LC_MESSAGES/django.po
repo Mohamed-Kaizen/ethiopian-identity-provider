@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-29 10:49+0300\n"
+"POT-Creation-Date: 2020-08-18 10:14+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,289 +18,512 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-#: etp/settings.py:179
+
+#: etp/settings.py:179 templates/admin/base_site.html:29
+#: templates/top_navbar.html:49
 msgid "English"
-msgstr ""
+msgstr "الإنجليزية"
 
-#: etp/settings.py:179
+#: etp/settings.py:179 templates/admin/base_site.html:31
+#: templates/top_navbar.html:51
 msgid "Arabic"
-msgstr ""
+msgstr "عربى"
 
-#: etp/settings.py:179
+#: etp/settings.py:179 templates/admin/base_site.html:30
+#: templates/top_navbar.html:50
 msgid "Amharic"
-msgstr ""
+msgstr "الأمهرية"
 
-#: etp/settings.py:370
+#: etp/settings.py:395
 msgid "Dev"
-msgstr ""
+msgstr "تطوير"
 
-#: etp/settings.py:376
+#: etp/settings.py:401
 msgid "Production"
-msgstr ""
+msgstr "إنتاج"
+
+#: etp/urls.py:17
+msgid "Ethiopian Identity Provider API"
+msgstr "واجهة برمجة تطبيقات موفر الهوية الإثيوبي"
+
+#: etp/urls.py:18
+msgid "v1"
+msgstr "الإصدار 1"
+
+#: etp/urls.py:19
+msgid "Ethiopian Identity Provider platform"
+msgstr "منصة موفر الهوية الإثيوبية"
+
+#: templates/base.html:19
+msgid "Ethiopia Identity Administrator Platform"
+msgstr "منصة إدارة الهوية في إثيوبيا"
+
+#: templates/base.html:29 templates/base.html:34 templates/top_navbar.html:33
+msgid "Ethiopian Identity Administrator"
+msgstr "مدير الهوية الإثيوبي"
+
+#: templates/oauth2_provider/application_confirm_delete.html:5
+#: templates/oauth2_provider/application_confirm_delete.html:27
+#: templates/oauth2_provider/application_detail.html:111
+#: templates/oauth2_provider/authorized-token-delete.html:26
+msgid "Delete"
+msgstr "حذف"
+
+#: templates/oauth2_provider/application_confirm_delete.html:10
+#: templates/oauth2_provider/application_list.html:70
+msgid "Empty apps"
+msgstr "تطبيقات فارغة"
+
+#: templates/oauth2_provider/application_confirm_delete.html:13
+msgid "Are you sure to delete"
+msgstr "هل انت متأكد من الحذف"
+
+#: templates/oauth2_provider/application_confirm_delete.html:15
+msgid "app?"
+msgstr "تطبيق؟"
+
+#: templates/oauth2_provider/application_confirm_delete.html:23
+#: templates/oauth2_provider/authorize.html:130
+#: templates/oauth2_provider/authorized-token-delete.html:22
+msgid "Cancel"
+msgstr "إلغاء"
+
+#: templates/oauth2_provider/application_detail.html:5
+msgid "Detail"
+msgstr "التفاصيل"
+
+#: templates/oauth2_provider/application_detail.html:16
+msgid "detail"
+msgstr "التفاصيل"
+
+#: templates/oauth2_provider/application_detail.html:32
+msgid "client id"
+msgstr "معرف العميل"
+
+#: templates/oauth2_provider/application_detail.html:48
+msgid "client secret"
+msgstr "سر العميل"
+
+#: templates/oauth2_provider/application_detail.html:60
+msgid "client type"
+msgstr "نوع العميل"
+
+#: templates/oauth2_provider/application_detail.html:69
+msgid "authorization grant type"
+msgstr "نوع منحة التفويض"
+
+#: templates/oauth2_provider/application_detail.html:81
+msgid "redirect uris"
+msgstr "إعادة توجيه uris"
+
+#: templates/oauth2_provider/application_detail.html:101
+#: templates/oauth2_provider/application_form.html:176
+msgid "Go Back"
+msgstr "عد"
+
+#: templates/oauth2_provider/application_detail.html:106
+msgid "Edit"
+msgstr "تعديل"
+
+#: templates/oauth2_provider/application_form.html:5
+#: templates/oauth2_provider/application_form.html:16
+msgid "Update"
+msgstr "تحديث"
+
+#: templates/oauth2_provider/application_form.html:88
+msgid "confidential"
+msgstr "سري"
+
+#: templates/oauth2_provider/application_form.html:90
+msgid "public"
+msgstr "عامة"
+
+#: templates/oauth2_provider/application_form.html:114
+msgid "authorization code"
+msgstr "قانون التفويض"
+
+#: templates/oauth2_provider/application_form.html:116
+msgid "implicit"
+msgstr "ضمني"
+
+#: templates/oauth2_provider/application_form.html:118
+msgid "resource owner password-based"
+msgstr "مالك المورد القائم على كلمة المرور"
+
+#: templates/oauth2_provider/application_form.html:120
+msgid "client credentials"
+msgstr "أوراق اعتماد العميل"
+
+#: templates/oauth2_provider/application_form.html:180
+msgid "Save"
+msgstr "حفظ"
 
 #: templates/oauth2_provider/application_list.html:5
 msgid "Application List"
-msgstr ""
+msgstr "قائمة التطبيقات"
 
 #: templates/oauth2_provider/application_list.html:13
 msgid "Your Apps"
-msgstr ""
+msgstr "تطبيقاتك"
 
 #: templates/oauth2_provider/application_list.html:16
 msgid "new app"
-msgstr ""
+msgstr "تطبيق جديد"
+
+#: templates/oauth2_provider/application_registration_form.html:5
+msgid "Register Application"
+msgstr "تسجيل التطبيق"
+
+#: templates/oauth2_provider/application_registration_form.html:6
+msgid "Register new application"
+msgstr "تسجيل طلب جديد"
 
 #: templates/oauth2_provider/authorize.html:5
 msgid "Authorize application"
-msgstr ""
+msgstr "يأذن التطبيق"
 
 #: templates/oauth2_provider/authorize.html:35
-#: templates/oauth2_provider/authorize.html:124
+#: templates/oauth2_provider/authorize.html:133
 msgid "Authorize"
-msgstr ""
+msgstr "تفويض"
+
+#: templates/oauth2_provider/authorize.html:48 templates/top_navbar.html:59
+#: users/models.py:113
+msgid "profile"
+msgstr "الملف الشخصي"
 
 #: templates/oauth2_provider/authorize.html:56
 msgid "by"
-msgstr ""
+msgstr "بواسطة"
 
 #: templates/oauth2_provider/authorize.html:62
 msgid "wants to access your"
-msgstr ""
+msgstr "يريد الوصول إلى"
 
 #: templates/oauth2_provider/authorize.html:62
 msgid "account"
-msgstr ""
+msgstr "الحساب"
 
-#: templates/oauth2_provider/authorize.html:84
+#: templates/oauth2_provider/authorize.html:85
+#: templates/oauth2_provider/authorized-tokens.html:56
 msgid "Personal user data"
-msgstr ""
+msgstr "بيانات المستخدم الشخصية"
 
-#: templates/oauth2_provider/authorize.html:90
+
+#: templates/oauth2_provider/authorize.html:91
+#: templates/oauth2_provider/authorized-tokens.html:63
 msgid "Email addresses (read-only)"
-msgstr ""
+msgstr "عناوين البريد الإلكتروني (للقراءة فقط)"
 
-#: templates/oauth2_provider/authorize.html:94
+#: templates/oauth2_provider/authorize.html:95
+#: templates/oauth2_provider/authorized-tokens.html:67
 msgid "Profile (read-only)"
-msgstr ""
+msgstr "الملف الشخصي (للقراءة فقط)"
 
-#: templates/oauth2_provider/authorize.html:98
+#: templates/oauth2_provider/authorize.html:99
+#: templates/oauth2_provider/authorized-tokens.html:71
 msgid "Accepted Business (read-only)"
-msgstr ""
+msgstr "الأعمال المقبولة (للقراءة فقط)"
 
-#: templates/oauth2_provider/authorize.html:102
+#: templates/oauth2_provider/authorize.html:103
+#: templates/oauth2_provider/authorized-tokens.html:75
 msgid "Requested Business (read-only)"
-msgstr ""
+msgstr "الأعمال المطلوبة (للقراءة فقط)"
 
-#: templates/oauth2_provider/authorize.html:121
-msgid "Cancel"
-msgstr ""
+#: templates/oauth2_provider/authorize.html:107
+#: templates/oauth2_provider/authorized-tokens.html:79
+msgid "Create business request"
+msgstr "إنشاء طلب عمل"
 
-#: templates/oauth2_provider/authorize.html:132
+#: templates/oauth2_provider/authorize.html:111
+#: templates/oauth2_provider/authorized-tokens.html:83
+msgid "Create renew request"
+msgstr "إنشاء طلب تجديد"
+
+#: templates/oauth2_provider/authorize.html:141
 msgid "Error"
-msgstr ""
+msgstr "خطأ"
+
+#: templates/oauth2_provider/authorized-token-delete.html:5
+msgid "Revoke token"
+msgstr "إبطال الرمز المميز"
+
+#: templates/oauth2_provider/authorized-token-delete.html:11
+msgid "throw away"
+msgstr "رمى"
+
+#: templates/oauth2_provider/authorized-token-delete.html:14
+msgid "Are you sure you want to delete this token?"
+msgstr "هل أنت متأكد أنك تريد حذف هذا الرمز المميز؟"
+
+#: templates/oauth2_provider/authorized-tokens.html:5
+msgid "Authorized apps"
+msgstr "التطبيقات المعتمدة"
+
+#: templates/oauth2_provider/authorized-tokens.html:15
+msgid "Tokens"
+msgstr "الرموز"
+
+#: templates/oauth2_provider/authorized-tokens.html:103
+msgid "Empty authorized apps"
+msgstr "التطبيقات المصرح بها فارغة"
+
+#: templates/registration/login.html:4
+msgid "Sign In"
+msgstr "تسجيل الدخول"
+
+#: templates/registration/login.html:12 templates/registration/login.html:50
+msgid "sign in"
+msgstr "تسجيل الدخول"
+
+#: templates/registration/login.html:30
+msgid "username"
+msgstr "اسم المستخدم"
+
+#: templates/registration/login.html:75
+msgid "Submit"
+msgstr "إرسال"
+
+#: templates/top_navbar.html:41
+msgid "Sign Out"
+msgstr "خروج"
 
 #: users/admin.py:64 users/admin.py:83
 msgid "Personal info"
-msgstr ""
+msgstr "معلومات شخصية"
 
 #: users/admin.py:77 users/admin.py:100
 msgid "Permissions"
-msgstr ""
+msgstr "أذونات"
 
 #: users/admin.py:113
 msgid "Important dates"
-msgstr ""
+msgstr "تواريخ مهمة"
 
 #: users/admin.py:286
-msgid "Ethiopian Identity Administrator site admin"
-msgstr ""
+msgid "Mark selected business request as Accepted"
+msgstr "وضع علامة على طلب العمل المحدد على أنه مقبول"
 
 #: users/admin.py:287
-msgid "Ethiopian Identity Administrator Dashboard"
-msgstr ""
+msgid "Mark selected business request as Deny"
+msgstr "وضع علامة رفض على طلب العمل المحدد"
 
-#: users/admin.py:288
+#: users/admin.py:296
+msgid "Ethiopian Identity Administrator site admin"
+msgstr "مدير موقع مدير الهوية الإثيوبي"
+
+#: users/admin.py:297
+msgid "Ethiopian Identity Administrator Dashboard"
+msgstr "لوحة تحكم مسؤول الهوية الإثيوبية"
+
+#: users/admin.py:298
 msgid "Welcome to Ethiopian Identity Administrator"
-msgstr ""
+msgstr "مرحبًا بكم في مدير الهوية الإثيوبي"
 
 #: users/apps.py:10
 msgid "Users"
-msgstr ""
+msgstr "المستخدمون"
 
-#: users/models.py:45
+#: users/models.py:59
 msgid "Requested"
-msgstr ""
+msgstr "طلب"
 
-#: users/models.py:47
+#: users/models.py:61
 msgid "Accepted"
-msgstr ""
+msgstr "قبلت"
 
-#: users/models.py:49
+#: users/models.py:63
 msgid "Deny"
-msgstr ""
+msgstr "رفض"
 
-#: users/models.py:55
+#: users/models.py:69
 msgid "Sole Proprietorship"
-msgstr ""
+msgstr "ملكية فردية"
 
-#: users/models.py:57
+#: users/models.py:71
 msgid "Private Limited Company"
-msgstr ""
+msgstr "شركة خاصة محدودة"
 
-#: users/models.py:64
+#: users/models.py:78
 msgid "unique id"
-msgstr ""
+msgstr "هوية مميزة"
 
-#: users/models.py:68
+#: users/models.py:82
 msgid "personal identity number"
-msgstr ""
-
-#: users/models.py:74
-msgid "email address"
-msgstr ""
-
-#: users/models.py:76
-msgid "full name"
-msgstr ""
-
-#: users/models.py:79 users/models.py:159
-msgid "picture"
-msgstr ""
-
-#: users/models.py:84
-msgid "phone number"
-msgstr ""
-
-#: users/models.py:86
-msgid "date of birth"
-msgstr ""
+msgstr "رقم الهوية الشخصية"
 
 #: users/models.py:88
-msgid "born"
-msgstr ""
+msgid "email address"
+msgstr "عنوان البريد الالكترونى"
 
 #: users/models.py:90
-msgid "nationality"
-msgstr ""
+msgid "full name"
+msgstr "الاسم الكامل"
 
-#: users/models.py:93
-msgid "expired at"
-msgstr ""
+#: users/models.py:93 users/models.py:188
+msgid "picture"
+msgstr "صورة"
+
+#: users/models.py:98
+msgid "phone number"
+msgstr "رقم الهاتف"
 
 #: users/models.py:100
-msgid "profile"
-msgstr ""
+msgid "date of birth"
+msgstr "تاريخ الولادة"
 
-#: users/models.py:101
+#: users/models.py:102
+msgid "born"
+msgstr "مولود"
+
+#: users/models.py:104
+msgid "nationality"
+msgstr "الجنسية"
+
+#: users/models.py:107
+msgid "expired at"
+msgstr "منتهية الصلاحية في"
+
+#: users/models.py:114
 msgid "profiles"
-msgstr ""
+msgstr "مظهر"
 
-#: users/models.py:122 users/models.py:152 users/models.py:178
+#: users/models.py:142
+msgid "Is Expired ?"
+msgstr "منتهي الصلاحية ؟"
+
+#: users/models.py:143
+msgid "Expired in"
+msgstr "منتهية الصلاحية في"
+
+#: users/models.py:151 users/models.py:181 users/models.py:207
 msgid "user"
-msgstr ""
+msgstr "المستعمل"
 
-#: users/models.py:128
+#: users/models.py:157
 msgid "country"
-msgstr ""
+msgstr "بلد"
 
-#: users/models.py:130 users/models.py:211
+#: users/models.py:159 users/models.py:240
 msgid "city"
-msgstr ""
+msgstr "مدينة"
 
-#: users/models.py:132
+#: users/models.py:161
 msgid "street"
-msgstr ""
+msgstr "شارع"
 
-#: users/models.py:134
+#: users/models.py:163
 msgid "house number"
-msgstr ""
+msgstr "رقم الدار"
 
-#: users/models.py:139
+#: users/models.py:168
 msgid "address"
-msgstr ""
+msgstr "عنوان"
 
-#: users/models.py:140
+#: users/models.py:169
 msgid "addresses"
-msgstr ""
+msgstr "عناوين"
 
-#: users/models.py:165
+#: users/models.py:194
 msgid "fingerprint"
-msgstr ""
+msgstr "بصمة"
 
-#: users/models.py:166
+#: users/models.py:195
 msgid "fingerprints"
-msgstr ""
+msgstr "بصمات الأصابع"
 
-#: users/models.py:185 users/models.py:232
+#: users/models.py:214 users/models.py:261
 msgid "status"
-msgstr ""
+msgstr "الحالة"
 
-#: users/models.py:191
+#: users/models.py:220
 msgid "created at"
-msgstr ""
+msgstr "أنشئت في"
 
-#: users/models.py:196
+#: users/models.py:225
 msgid "renew"
-msgstr ""
+msgstr "تجديد"
 
-#: users/models.py:197
+#: users/models.py:226
 msgid "renews"
-msgstr ""
+msgstr "يجدد"
 
-#: users/models.py:207
+#: users/models.py:236
 msgid "name"
-msgstr ""
-
-#: users/models.py:209
-msgid "description"
-msgstr ""
-
-#: users/models.py:213
-msgid "sub city"
-msgstr ""
-
-#: users/models.py:216
-msgid "type"
-msgstr ""
-
-#: users/models.py:221
-msgid "requested by"
-msgstr ""
-
-#: users/models.py:228
-msgid "owners"
-msgstr ""
+msgstr "اسم"
 
 #: users/models.py:238
-msgid "is active"
-msgstr ""
+msgid "description"
+msgstr "وصف"
 
-#: users/models.py:240
-msgid "created_at"
-msgstr ""
+#: users/models.py:242
+msgid "sub city"
+msgstr "المدينة الفرعية"
 
 #: users/models.py:245
+msgid "type"
+msgstr "نوع العمل"
+
+#: users/models.py:250
+msgid "requested by"
+msgstr "بتوصية من"
+
+#: users/models.py:257
+msgid "owners"
+msgstr "أصحاب"
+
+#: users/models.py:267
+msgid "is active"
+msgstr "نشط"
+
+#: users/models.py:269
+msgid "created_at"
+msgstr "أنشئت في"
+
+#: users/models.py:274
 msgid "business"
-msgstr ""
+msgstr "اعمال"
 
-#: users/models.py:246
+#: users/models.py:275
 msgid "businesses"
-msgstr ""
-
-#: users/permissions.py:34
-msgid "You are authenticated."
-msgstr ""
+msgstr "الأعمال"
 
 #: users/validators.py:8
 msgid "This name cannot be registered.Please choose a different name."
-msgstr ""
+msgstr "لا يمكن تسجيل هذا الاسم الرجاء اختيار اسم مختلف."
 
 #: users/validators.py:10
 msgid ""
 "This email address cannot be registered. Please supply a different email "
 "address."
-msgstr ""
+msgstr "لا يمكن تسجيل عنوان البريد الإلكتروني هذا. يرجى تقديم عنوان بريد إلكتروني مختلف"
 
 #: users/validators.py:257 users/validators.py:288
 msgid "invalid"
-msgstr ""
+msgstr "غير صالحة"
+
+#: users/views.py:92
+msgid "Your account has not been expired yet"
+msgstr "حسابك لم تنته بعد"
+
+#: users/views.py:100
+msgid "You have already send renew request. Please wait till it been accepted."
+msgstr "لقد قمت بالفعل بإرسال طلب التجديد. يرجى الانتظار حتى يتم قبوله."
+
+#: users/views.py:110
+msgid "You send renew request successfully"
+msgstr "قمت بإرسال طلب التجديد بنجاح"
+
+#: users/views.py:139
+#, python-brace-format
+msgid "The name: {name} has been took. Try another name"
+msgstr "الاسم: {name} مأخوذ. جرب اسما آخر"
+
+msgid "Hold down “Control”, or “Command” on a Mac, to select more than one."
+msgstr "اضغط باستمرار على Control أو Command في جهاز Mac لتحديد أكثر من واحد."
+
+msgid "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only."
+msgstr "مطلوب. 150 حرفًا أو أقل. أحرف وأرقام و @ /. / + / - / _ فقط."
+
+msgid "Password"
+msgstr "كلمه السر"

@@ -1,5 +1,5 @@
 """Users URL Configuration."""
-from django.urls import include, path
+from django.urls import path
 
 from .views import (
     OauthAcceptedBusinessAPI,
@@ -12,7 +12,6 @@ from .views import (
 )
 
 urlpatterns = [
-    path("", include("dj_rest_auth.urls")),
     path("o/userinfo/", OauthUserInfoAPI.as_view()),
     path("o/profile/", OauthUserProfileAPI.as_view()),
     path("o/renew/", OauthRenewAPI.as_view()),

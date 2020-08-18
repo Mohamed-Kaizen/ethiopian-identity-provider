@@ -148,6 +148,8 @@ class UserListSerializer(serializers.Serializer):
 
     username = serializers.CharField(read_only=True)
 
+    email = serializers.EmailField(read_only=True)
+
     picture = serializers.ImageField(read_only=True)
 
 
