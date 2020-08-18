@@ -56,12 +56,10 @@ nav:
       - Validationrs: "reference/validators.md"
       - Views: "reference/views.md"
       - Users:
-          - Adapter: "reference/users/adapter.md"
           - Admin: "reference/users/admin.md"
           - Context Processors: "reference/users/context_processors.md"
           - Forms: "reference/users/forms.md"
           - Models: "reference/users/models.md"
-          - Permissions: "reference/users/permissions.md"
           - Utils: "reference/users/utils.md"
           - Validators: "reference/users/validators.md"
 
